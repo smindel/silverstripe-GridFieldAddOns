@@ -1,0 +1,28 @@
+.cms .expandable-forms table.ss-gridfield-table tr.editmode {
+	background:rgba(74,145,204,.30);
+	border:1px solid #000 !important;
+	border-bottom:0 none transparent;
+}
+
+.cms .expandable-forms table.ss-gridfield-table tr.editmode:hover {
+	background:rgba(74,145,204,.40) !important;
+}
+
+.cms .expandable-forms table.ss-gridfield-table tr.EditFormContainer,
+.cms .expandable-forms table.ss-gridfield-table tr.EditFormContainer:hover {
+	border:1px solid #000 !important;
+	border-top:0 none transparent;
+	background:rgba(74,145,204,.25) !important;
+	cursor:default;
+}
+
+.cms .expandable-forms table.ss-gridfield-table tr.EditFormContainer > td {
+	padding:0;
+}
+
+.cms .expandable-forms table.ss-gridfield-table tr.EditFormContainer > td > div {
+	height:0;
+	overflow:hidden;
+	-moz-transform: scale(.9);
+	-moz-transform-origin: 5% center;
+}
