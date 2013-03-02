@@ -35,8 +35,6 @@
 				var val = me.attr('type') == 'checkbox' ? (me.attr('checked') ? 1 : 0) : $(this).val();
 				var data = field + '=' + val;
 
-				console.log([url, data]);
-
 				$.post(url, data, function(data, textStatus) {
 
 					statusMessage(data.message, data.type);

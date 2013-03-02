@@ -133,13 +133,17 @@ class GridFieldEditableCells implements GridField_ColumnProvider, GridField_URLH
 			if($record->isChanged()) {
 				try {
 					$record->write(true);
-					if(count($add)) $gridField->getList()->add($record, $add);
+					return json_encode(array('type' => 'good', 'message' => 'Record saved'));
 				} catch(ValidationException $e) {
 					return json_encode(array('type' => 'bad', 'message' => $e->getMessage()));
 				}
+			} else if(count($add)) {
+				$gridField->getList()->add($record, $add);
+				return json_encode(array('type' => 'good', 'message' => 'Relation updated'));
+			} else {
+				return json_encode(array('type' => 'good', 'message' => 'Nothing chnaged'));
 			}
 
-			return json_encode(array('type' => 'good', 'message' => 'Record saved'));
 		}
 	}
 
