@@ -81,6 +81,9 @@ class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 			$fields = $this->formorfields;
 		} else if($this->formorfields instanceof ViewableData) {
 			$form = $this->formorfields;
+		} else if($this->record->hasMethod('getExandableForm')) {
+			$form = $this->record->getExandableForm($this, __FUNCTION__);
+			$this->record->extend('updateExandableForm', $form);
 		} else if($this->record->hasMethod('getExandableFormFields')) {
 			$fields = $this->record->getExandableFormFields();
 			$this->record->extend('updateExandableFormFields', $fields);

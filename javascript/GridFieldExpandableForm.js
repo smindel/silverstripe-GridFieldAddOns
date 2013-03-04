@@ -86,7 +86,7 @@
 				// restore replaced fieldnames to send data with correct fieldnames
 				var data = [];
 				var prefix = $(this).getGridField().attr('data-name') + '_GFEF_Detail_';
-				$('input, select, textarea', container).each(function(){
+				$('input[name], select[name], textarea[name]', container).each(function(){
 					if($(this).attr('name').substr(0, prefix.length) == prefix) {
 						data.push({
 							name: $(this).attr('name').substr(prefix.length),
