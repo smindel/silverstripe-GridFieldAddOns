@@ -1,0 +1,20 @@
+#GridFieldUserColumnsDialog {
+	padding:20px;
+}
+
+#GridFieldUserColumnsDialog h1 {
+	font-size:1.5em;
+	font-weight:bold;
+	margin:1em 0;
+}
+
+#GridFieldUserColumnsDialog p small {
+	font-size:1em;
+	font-style:italic;
+	margin:1em 0;
+}
+
+#GridFieldUserColumnsDialog li {
+	font-size:1.2em;
+	padding:.1em;
+}
