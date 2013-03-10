@@ -24,10 +24,13 @@ class GridFieldUserColumns extends ViewableData implements GridField_ColumnProvi
 		Requirements::javascript('GridFieldAddOns/javascript/GridFieldUserColumns.js');
 
 		$usercolumns = $this->currentColumns();
+		$extracolumns = array_diff($columns, $this->availableColumns());
+		$displaycolumns = array_values(array_unique(array_merge(array_keys($usercolumns), $extracolumns)));
 
 		$datacolumnscomponent = $gridField->getConfig()->getComponentByType('GridFieldDataColumns');
 		$datacolumnscomponent->setDisplayFields($usercolumns);
-		$columns = array_keys($usercolumns);
+
+		$columns = $displaycolumns;
 	}
 
 	function defaultColumns() {
@@ -69,6 +72,7 @@ class GridFieldUserColumns extends ViewableData implements GridField_ColumnProvi
 		$user = $this->userColumns();
 		$extra = Config::inst()->get($class, self::$static_field_for_extra_columns);
 		$default = is_array($extra) ? array_merge($default, $extra) : $default;
+
 		return is_array($user) ? array_merge($user, $default) : $default;
 	}
 
@@ -95,9 +99,10 @@ class GridFieldUserColumns extends ViewableData implements GridField_ColumnProvi
 	public function getHTMLFragments($gridField) {
 
 		$gridField->getList()->dataClass();
+		$buttonlabel = _t('GridFieldAddOns.ChangeColumns',"Change Columns");
 
 		return array(
-			'buttons-before-right' => "<a class=\"action action ss-ui-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary gridfield-setup\" data-icon=\"settings\">Spalten ändern</a>",
+			'buttons-before-right' => "<a class=\"action action ss-ui-button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary gridfield-setup\" data-icon=\"settings\">$buttonlabel</a>",
 		);
 	}
 
@@ -133,10 +138,26 @@ class GridFieldUserColumns extends ViewableData implements GridField_ColumnProvi
 		if(!is_array($postcolumns)) return json_encode('bad');
 		foreach($postcolumns as $col) {
 			list($name, $title) = explode(':', $col);
-			if(!isset($available[$name]) || $available[$name] != $title) return json_encode('bad');
+			if(!isset($available[$name]) || $available[$name] != $title) return json_encode(array('bad', $this->gridField->getList()->dataClass()));
 			$newcolumns[$name] = $title;
 		}
 		Member::currentUser()->setGridFieldUserColumnsFor($gridField->getList()->dataClass(), $newcolumns);
 		return json_encode('good');
+	}
+}
+
+class GridFieldConfig_ExtendedRecordEditor extends GridFieldConfig_RecordEditor {
+
+	function __construct($itemsPerPage = null) {
+		parent::__construct($itemsPerPage);
+		$this->addComponent(new GridFieldUserColumns());
+	}
+}
+
+class GridFieldConfig_ExtendedRelationEditor extends GridFieldConfig_RelationEditor {
+
+	function __construct($itemsPerPage = null) {
+		parent::__construct($itemsPerPage);
+		$this->addComponent(new GridFieldUserColumns());
 	}
 }

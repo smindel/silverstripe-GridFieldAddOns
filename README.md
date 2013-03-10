@@ -1,35 +1,28 @@
 # GridFieldAddOns
 
-## GridFieldExpandableForm
+## Introduction
 
-GridFieldExpandableForm is a GridField component to display a form for a GridField item like GridFieldDetailForm does, but within the GridField. It expands the item in the fashion of a jQueryUI accordion effect instead of opening the form in the main part of the UI.
+GridFieldAddOns is a collection of plugins for the Silverstripe GridField.
 
-By default it uses DataObject::scaffoldFormFields() to create a simple form for the selected record. Alternativly you can pass the constructor your own fieldset or form to be displyed.
+Currently there are 4 components:
 
-GridFieldExpandableForm can be used to supply a simple form, preferrably with primitive form fields and no tabs, e.g. to enter many_many_extraFields values.
+- *[GridFieldExpandableForm](http://github.com/smindel/silverstripe-GridFieldAddOns/blob/master/docs/en/GridFieldExpandableForm.md)*
+	GridFieldExpandableForm is a GridField component to display a form for a GridField item like GridFieldDetailForm does, but within the GridField. It expands the item in the fashion of a jQueryUI accordion effect instead of opening the form in the main part of the UI.
+- *[GridFieldEditableCells](http://github.com/smindel/silverstripe-GridFieldAddOns/blob/master/docs/en/GridFieldEditableCells.md)*
+	GridFieldEditableCells turns your GridField into a spreadsheet. You click on a cell change the value, done. Like GridFieldExpandableForm it offers a quick way of editing a limited set of fields on a lot of records conveniently.
+- *[GridFieldRecordHighlighter](http://github.com/smindel/silverstripe-GridFieldAddOns/blob/master/docs/en/GridFieldRecordHighlighter.md)*
+	GridFieldRecordHighlighter highlights records in a GridField.
+- *[GridFieldUserColumns](http://github.com/smindel/silverstripe-GridFieldAddOns/blob/master/docs/en/GridFieldUserColumns.md)*
+	GridFieldUserColumns gives users control over the columns of the GridField.
 
-Actually you can pass the constructor any instance of ViewableData that has a loadDataFrom function.
+## Requirements
 
-### Code Example
+	SilverStripe Framework 3.0+
 
-	class Foo extends DataObject {
+## Installation
 
-		static $db = array('Title' => 'Varchar');
+Please follow the [standard module installation documentation](http://doc.silverstripe.org/framework/en/topics/modules). The module has to reside in a toplevel folder called `GridFieldAddOns/`.
 
-		static $many_many = array('Bars' => 'Bar');
+## Maintainers
 
-		static $many_many_extraFields = array('Bars' => array('Relation' => 'Varchar', 'OrderBy' => 'Int'));
-
-		function getCMSFields() {
-			$fields = parent::getCMSFields();
-			if($this->ID) {
-				$extrafields = new FieldList(new TextField('Relation'), new NumericField('OrderBy'));
-				$fields->dataFieldByName('Bars')->getConfig()->addComponent(new GridFieldExpandableForm($extrafields));
-			}
-			return $fields;
-		}
-	}
-
-## GridFieldManyManyExtraFields
-
-
+Andreas Piening <piening at 3online dot de>
