@@ -15,9 +15,11 @@ Currently there are 4 components:
 - *[GridFieldUserColumns](http://github.com/smindel/silverstripe-GridFieldAddOns/blob/master/docs/en/GridFieldUserColumns.md)*
 	GridFieldUserColumns gives users control over the columns of the GridField.
 
+Although I am using all the components in production they are rather in a beta stage. You helping me fixing bugs or improving the module is appreciated.
+
 ## Requirements
 
-	SilverStripe Framework 3.0+
+SilverStripe Framework 3.0+
 
 ## Installation
 
