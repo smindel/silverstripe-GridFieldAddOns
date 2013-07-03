@@ -43,6 +43,12 @@ class GridFieldExpandableForm implements GridField_URLHandler, GridField_HTMLPro
 
 class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 
+	private static $allowed_actions = array(
+		'edit',
+		'view',
+		'ItemEditForm'
+	);
+
 	static $url_handlers = array(
 		'$Action!' => '$Action',
 		'' => 'edit',
