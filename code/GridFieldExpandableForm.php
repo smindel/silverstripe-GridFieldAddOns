@@ -46,7 +46,8 @@ class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 	private static $allowed_actions = array(
 		'edit',
 		'view',
-		'ItemEditForm'
+		'ItemEditForm',
+		'ExpandableForm'
 	);
 
 	static $url_handlers = array(
