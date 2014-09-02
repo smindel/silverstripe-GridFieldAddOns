@@ -1,0 +1,14 @@
+---
+name: gridfieldaddons
+---
+LeftAndMain:
+  extra_requirements_javascript:
+    - gridfield-addons/javascript/GridFieldExpandableForm.js
+    - gridfield-addons/javascript/GridFieldEditableCells.js
+    - gridfield-addons/javascript/GridFieldRecordHighlighter.js
+    - gridfield-addons/javascript/GridFieldUserColumns.js	
+  extra_requirements_css:
+    - gridfield-addons/javascript/GridFieldExpandableForm.css
+    - gridfield-addons/javascript/GridFieldEditableCells.css
+    - gridfield-addons/javascript/GridFieldRecordHighlighter.css
+    - gridfield-addons/javascript/GridFieldUserColumns.css
