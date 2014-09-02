@@ -43,9 +43,13 @@ class GridFieldExpandableForm implements GridField_URLHandler, GridField_HTMLPro
 
 class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 
-	static $url_handlers = array(
+	private static $url_handlers = array(
 		'$Action!' => '$Action',
 		'' => 'edit',
+	);
+
+	private static $allowed_actions = array(
+		'edit'
 	);
 
 	protected $gridfield;
@@ -104,9 +108,12 @@ class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 				$this,
 				'ExpandableForm',
 				$fields,
-				$actions,
-				$this->validator
+				$actions
 			);
+		}
+
+		if($this->validator) {
+			$form->setValidator($this->validator);
 		}
 
 		$form->loadDataFrom($this->record, Form::MERGE_DEFAULT);
