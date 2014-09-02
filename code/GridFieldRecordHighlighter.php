@@ -52,8 +52,8 @@ class GridFieldRecordHighlighter implements GridField_ColumnProvider {
 	 */
 	public function getColumnContent($gridField, $record, $columnName) {
 
-		Requirements::javascript('GridFieldAddOns/javascript/GridFieldRecordHighlighter.js');
-		Requirements::css('GridFieldAddOns/css/GridFieldRecordHighlighter.css');
+		Requirements::javascript(GRIDFIELD_ADDONS_DIR . '/javascript/GridFieldRecordHighlighter.js');
+		Requirements::css(GRIDFIELD_ADDONS_DIR. '/css/GridFieldRecordHighlighter.css');
 
 		$alerts = $this->getAlerts($record);
 

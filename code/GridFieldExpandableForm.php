@@ -30,8 +30,8 @@ class GridFieldExpandableForm implements GridField_URLHandler, GridField_HTMLPro
 	public function getHTMLFragments($gridField) {
 
 		Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery-ui/jquery-ui.js');
-		Requirements::javascript('GridFieldAddOns/javascript/GridFieldExpandableForm.js');
-		Requirements::css('GridFieldAddOns/css/GridFieldExpandableForm.css');
+		Requirements::javascript(GRIDFIELD_ADDONS_DIR . '/javascript/GridFieldExpandableForm.js');
+		Requirements::css(GRIDFIELD_ADDONS_DIR .'/css/GridFieldExpandableForm.css');
 
 		$gridField->addExtraClass('expandable-forms');
 		$gridField->setAttribute('data-pseudo-form-url', $gridField->Link('expand'));
@@ -43,9 +43,13 @@ class GridFieldExpandableForm implements GridField_URLHandler, GridField_HTMLPro
 
 class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 
-	static $url_handlers = array(
+	private static $url_handlers = array(
 		'$Action!' => '$Action',
 		'' => 'edit',
+	);
+
+	private static $allowed_actions = array(
+		'edit'
 	);
 
 	protected $gridfield;
@@ -104,9 +108,12 @@ class GridFieldExpandableForm_ItemRequest extends RequestHandler {
 				$this,
 				'ExpandableForm',
 				$fields,
-				$actions,
-				$this->validator
+				$actions
 			);
+		}
+
+		if($this->validator) {
+			$form->setValidator($this->validator);
 		}
 
 		$form->loadDataFrom($this->record, Form::MERGE_DEFAULT);
