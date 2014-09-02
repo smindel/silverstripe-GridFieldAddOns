@@ -2,23 +2,25 @@
 
 	$.entwine('ss', function($) {
 
-		$('.expandable-forms .ss-gridfield-item td:not(.col-buttons)').entwine({
+		$('.expandable-forms .ss-gridfield-item td').entwine({
 			onclick: function() {
+				return false;
+			}
+		});
 
+		$('.expandable-forms .ss-gridfield-item .edit-link').entwine({
+			onclick: function() {
 				var row = $(this).closest('tr');
 				var iseditmode = row.hasClass('editmode');
 				
 				$('.editmode', $(this).getGridField()).collapse();
 				
 				if(!iseditmode) row.populate();
-				
-				return false;
 			}
 		});
 
 		$('.expandable-forms .ss-gridfield-item').entwine({
 			expand: function() {
-
 				var id = $(this).attr('data-id');
 				$('.EditFormContainer[data-id=' + id + '] .EditFormDiv', $(this).getGridField())
 					.css({
