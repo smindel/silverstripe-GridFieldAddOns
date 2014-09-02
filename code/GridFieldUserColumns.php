@@ -21,7 +21,7 @@ class GridFieldUserColumns extends ViewableData implements GridField_ColumnProvi
 
 		$this->init($gridField);
 
-		Requirements::javascript('GridFieldAddOns/javascript/GridFieldUserColumns.js');
+		Requirements::javascript(GRIDFIELD_ADDONS_DIR. '/javascript/GridFieldUserColumns.js');
 
 		$usercolumns = $this->currentColumns();
 		$extracolumns = array_diff($columns, $this->availableColumns());

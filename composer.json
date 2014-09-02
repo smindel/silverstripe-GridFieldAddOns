@@ -5,23 +5,20 @@
 	"keywords": ["silverstripe", "gridfield", "component"],
 	"license": "BSD-3-Clause",
 	"homepage": "https://github.com/smindel/silverstripe-GridFieldAddOns",
-	"authors":[
-		{
-			"name": "Andreas Piening",
-			"homepage": "https://github.com/smindel/",
-			"email" : "piening@3online.de",
-			"role" : "freelance developer"
-		}
-	],
-	"require": 
-		{
-			"php": ">=5.3.2",
-			"silverstripe/framework": ">=3.0.1"
-		},
-	"extra":
-		{
-			"snapshot" : "https://raw.github.com/smindel/silverstripe-GridFieldAddOns/master/docs/en/_images/GridFieldEditableCells1.png"
-		},
+	"authors":[{
+		"name": "Andreas Piening",
+		"homepage": "https://github.com/smindel/",
+		"email" : "piening@3online.de",
+		"role" : "freelance developer"
+	}],
+	"require":  {
+		"php": ">=5.3.2",
+		"silverstripe/framework": ">=3.0.1"
+	},
+	"extra": {
+		"installer-path": "gridfield-addons",
+		"snapshot" : "https://raw.github.com/smindel/silverstripe-GridFieldAddOns/master/docs/en/_images/GridFieldEditableCells1.png"
+	},
 	"support": {
 		"issues": "https://github.com/smindel/silverstripe-GridFieldAddOns/issues?state=open"
 	}

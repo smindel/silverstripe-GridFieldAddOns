@@ -30,8 +30,8 @@ class GridFieldExpandableForm implements GridField_URLHandler, GridField_HTMLPro
 	public function getHTMLFragments($gridField) {
 
 		Requirements::javascript(FRAMEWORK_DIR . '/thirdparty/jquery-ui/jquery-ui.js');
-		Requirements::javascript('GridFieldAddOns/javascript/GridFieldExpandableForm.js');
-		Requirements::css('GridFieldAddOns/css/GridFieldExpandableForm.css');
+		Requirements::javascript(GRIDFIELD_ADDONS_DIR . '/javascript/GridFieldExpandableForm.js');
+		Requirements::css(GRIDFIELD_ADDONS_DIR .'/css/GridFieldExpandableForm.css');
 
 		$gridField->addExtraClass('expandable-forms');
 		$gridField->setAttribute('data-pseudo-form-url', $gridField->Link('expand'));

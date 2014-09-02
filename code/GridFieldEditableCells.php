@@ -72,8 +72,8 @@ class GridFieldEditableCells implements GridField_ColumnProvider, GridField_URLH
 	 */
 	public function getColumnContent($gridField, $record, $columnName) {
 
-		Requirements::javascript('GridFieldAddOns/javascript/GridFieldEditableCells.js');
-		Requirements::css('GridFieldAddOns/css/GridFieldEditableCells.css');
+		Requirements::javascript(GRIDFIELD_ADDONS_DIR .'/javascript/GridFieldEditableCells.js');
+		Requirements::css(GRIDFIELD_ADDONS_DIR .'/css/GridFieldEditableCells.css');
 
 		$name = "{$gridField->Name}_EditableCell[{$record->ID}][{$columnName}]";
 		$value = $record->has_one($columnName) ? $record->{$columnName . 'ID'} : $record->$columnName;
