@@ -20,6 +20,7 @@
 		},
 	"extra":
 		{
+			"installer-name": "GridFieldAddOns",
 			"snapshot" : "https://raw.github.com/smindel/silverstripe-GridFieldAddOns/master/docs/en/_images/GridFieldEditableCells1.png"
 		},
 	"support": {
