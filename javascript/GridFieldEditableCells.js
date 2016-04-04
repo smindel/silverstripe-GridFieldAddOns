@@ -30,7 +30,8 @@
 
 				var me = $(this);
 				var id = me.closest('tr').attr('data-id');
-				var url = me.closest('.ss-gridfield').attr('data-url') + "/savecomponent/" + id;
+				var action = me.closest('.ss-gridfield').attr('data-url').split('?');
+				var url = action[0] + "/savecomponent/" + id + (action[1] ? '?' + action[1] : '');
 				var field = me.attr('name');
 				var val = me.attr('type') == 'checkbox' ? (me.attr('checked') ? 1 : 0) : $(this).val();
 				var data = field + '=' + val;
