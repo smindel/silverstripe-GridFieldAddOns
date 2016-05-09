@@ -10,6 +10,7 @@
 				var dialogelement = $('<div id="GridFieldUserColumnsDialog" data-url="' + updateurl + '"></div>').appendTo('body');
 				dialogelement.dialog({
 					width:300,
+					modal: true,
 					close: function() {
 						dialogelement.remove();
 						me.getGridField().reload();
