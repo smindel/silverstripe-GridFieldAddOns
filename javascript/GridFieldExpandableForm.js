@@ -2,7 +2,7 @@
 
 	$.entwine('ss', function($) {
 
-		$('.expandable-forms .ss-gridfield-item td').entwine({
+		$('.expandable-forms .ss-gridfield-item td:not(.col-bulkSelect)').entwine({
 			onclick: function() {
 				return false;
 			}
