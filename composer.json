@@ -1,5 +1,5 @@
 {
-	"name":"silverstripe/gridfield-addons",
+	"name":"smindel/silverstripe-gridfield-addons",
 	"type": "silverstripe-module",
 	"description": "GridFieldAddOns is a collection of plugins for the Silverstripe GridField.",
 	"keywords": ["silverstripe", "gridfield", "component"],
