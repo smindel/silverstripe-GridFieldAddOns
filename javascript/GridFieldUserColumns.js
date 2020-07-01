@@ -9,8 +9,8 @@
 				var updateurl = $(this).getGridField().attr('data-url') + '/saveusercolumns';
 				var dialogelement = $('<div id="GridFieldUserColumnsDialog" data-url="' + updateurl + '"></div>').appendTo('body');
 				dialogelement.dialog({
-					width:100,
-					height:400,
+					width:300,
+					modal: true,
 					close: function() {
 						dialogelement.remove();
 						me.getGridField().reload();
